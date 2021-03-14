@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    parameters {
+        boolean(name: 'InstanceEnabled', defaultValue: true , description: 'vcenter data center',)
+        string(name: 'InstanceCount', defaultValue: "" , description: 'data center cluster',)
+    }
     stages{
         stage("Git Checkout "){
             steps {
@@ -17,7 +21,11 @@ pipeline{
         stage("Terraform Plan"){
             steps {
                 echo "Executing Terraform"
-                sh 'terraform plan'
+                sh '''
+                terraform plan \
+                 -var 'instance_enabled=$(InstanceEnabled)'
+                 -var 'instace_count=$(InstanceCount)'
+                 '''
             }
         }
     }
