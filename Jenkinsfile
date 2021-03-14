@@ -23,8 +23,8 @@ pipeline{
                 echo "Executing Terraform"
                 sh '''
                 terraform plan \
-                 -var 'instance_enabled=$(InstanceEnabled)'
-                 -var 'instace_count=$(InstanceCount)'
+                 -var 'instance_enabled=$(params.InstanceEnabled)'
+                 -var 'instace_count=$(params.InstanceCount)'
                  '''
             }
         }
