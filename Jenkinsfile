@@ -8,13 +8,13 @@ pipeline{
                 url: 'git@github.com:rupinder-on-github/terraform-cicd.git'
             }
         }
-        stage("Terraform Init and Plan"){
+        stage("Terraform Init"){
             steps {
                 echo "Executing Terraform"
                 sh 'terraform init'
             }
         }
-        stage("Terraform Init and Plan"){
+        stage("Terraform Plan"){
             steps {
                 echo "Executing Terraform"
                 sh 'terraform plan'
