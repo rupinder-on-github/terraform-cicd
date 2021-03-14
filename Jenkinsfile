@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters {
-        boolean(name: 'InstanceEnabled', defaultValue: true , description: 'vcenter data center',)
+        booleanParam(name: 'InstanceEnabled', defaultValue: true , description: 'vcenter data center',)
         string(name: 'InstanceCount', defaultValue: "" , description: 'data center cluster',)
     }
     stages{
