@@ -14,6 +14,12 @@ pipeline{
                 sh 'terraform init'
             }
         }
+        stage("Terraform Init and Plan"){
+            steps {
+                echo "Executing Terraform"
+                sh 'terraform plan'
+            }
+        }
     }
 }
 
